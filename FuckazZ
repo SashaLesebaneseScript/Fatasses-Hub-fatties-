@@ -1,0 +1,55 @@
+local _y=function(_s)local _o={}for _c in _s:gmatch("[^,]+")do table.insert(_o,string.char(tonumber(_c)/3))end return table.concat(_o)end
+local _f=function(_s,_w)
+    local _v=_w
+    if _v==nil then _v=7 end
+    for _i=1,#_s do _v=(_v*31+_s:byte(_i))%268435455 end
+    return _v
+end
+local _k11=_y("285,210,216,285,264,171,225")
+local _k12=_y("285,354")
+local _n11=23456789
+local _T5=getgenv()[_k11]
+local _T6=getgenv()[_k11.._k12]
+if not _T5 or not _T6 then return end
+if _T5.h3~=_T6.h3 or _T5.cnt~=_T6.cnt then
+    getgenv()[_k11]=nil getgenv()[_k11.._k12]=nil return
+end
+if _T5.h3~=_f(tostring(_T5.h2)..tostring(_n11),17) then
+    getgenv()[_k11]=nil getgenv()[_k11.._k12]=nil return
+end
+local _j8=_y("285,285,321,312")
+local _j9=_y("330,333,318,285,321,327")
+local _k13=_y("210,216")
+local _k14,_k15,_k16,_k17,_k18=_T5.p,_T5.k,_T5.msg,_T5.e,_T5.s
+local _n12=(_T5.err~=false)
+if getgenv()[_k13] then
+    if getgenv()[_k13][_k15.x1] then
+        if _n12 then
+            getgenv()[_k13][_k15.x1][_k14.y1]=_k16.z3
+            getgenv()[_k13][_k15.x1][_k14.y3]=Color3.fromRGB(255,50,50)
+        else
+            getgenv()[_k13][_k15.x1][_k14.y1]=_k16.z4
+            if getgenv()[_k13][_k15.x2] then
+                _k18:Create(getgenv()[_k13][_k15.x2],TweenInfo.new(0.3,Enum[_k17.w1][_k17.w4],Enum[_k17.w2][_k17.w6]),{[_k14.y2]=UDim2.new(1,0,1,0)}):Play()
+            end
+        end
+    end
+    task.wait(0.8)
+    if getgenv()[_k13][_k15.x3] then
+        _k18:Create(getgenv()[_k13][_k15.x3],TweenInfo.new(0.3,Enum[_k17.w1][_k17.w5],Enum[_k17.w2][_k17.w7]),{[_k14.y2]=UDim2.new(0,0,0,0)}):Play()
+        task.wait(0.3)
+    end
+    if getgenv()[_k13][_k15.x4] then getgenv()[_k13][_k15.x4]:Destroy() end
+    if getgenv()[_k13][_k15.x5] then getgenv()[_k13][_k15.x5][_k14.y4]=true end
+    if getgenv()[_k13][_k15.x6] then
+        getgenv()[_k13][_k15.x6][_k14.y2]=UDim2.new(0,0,0,0)
+        getgenv()[_k13][_k15.x6][_k14.y5]=true
+        _k18:Create(getgenv()[_k13][_k15.x6],TweenInfo.new(0.6,Enum[_k17.w1][_k17.w5],Enum[_k17.w2][_k17.w6]),{[_k14.y2]=UDim2.new(0,getgenv()[_k13][_k15.x8],0,getgenv()[_k13][_k15.x9])}):Play()
+    end
+    if getgenv()[_k13][_k15.x7] then pcall(getgenv()[_k13][_k15.x7]) end
+end
+local _n13=34567891
+_T5.h4=_f(tostring(_T5.h3)..tostring(_n13),19)
+_T5.cnt=_T5.cnt+1
+_T6.h4=_T5.h4
+_T6.cnt=_T5.cnt
