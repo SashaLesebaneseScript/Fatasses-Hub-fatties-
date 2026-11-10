@@ -1,0 +1,30 @@
+local _f=function(_s,_w)
+    local _v=_w
+    if _v==nil then _v=7 end
+    for _i=1,#_s do _v=(_v*31+_s:byte(_i))%268435455 end
+    return _v
+end
+local _o1={}
+for _c in ("115|90|92|115|108|77|95"):gmatch("(%d+)") do
+    table.insert(_o1,string.char(tonumber(_c)-20))
+end
+local _k19=table.concat(_o1)
+local _o2={}
+for _c in ("115|138"):gmatch("(%d+)") do
+    table.insert(_o2,string.char(tonumber(_c)-20))
+end
+local _k20=table.concat(_o2)
+local _n14=34567891
+local _n15=56789123
+local _T7=getgenv()[_k19]
+local _T8=getgenv()[_k19.._k20]
+if not _T7 or not _T8 then return end
+if _T7.h4~=_T8.h4 or _T7.cnt~=_T8.cnt then
+    getgenv()[_k19]=nil getgenv()[_k19.._k20]=nil return
+end
+if _T7.h4~=_f(tostring(_T7.h3)..tostring(_n14),19) then
+    getgenv()[_k19]=nil getgenv()[_k19.._k20]=nil return
+end
+_T7.h5=_f(tostring(_T7.h4)..tostring(_n15),23)
+getgenv()[_k19]=nil
+getgenv()[_k19.._k20]=nil
